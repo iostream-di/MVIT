@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Military Visual Identification Trainer</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <h1>Military Visual Identification Trainer</h1>
+    </header>
+
+    <section id="setupSection">
+      <div class="panel">
+        <h2>Load Hotlists</h2>
+        <p>Select hotlist ZIP file. (VACR, AVR, Fin Flashes, Munitions, Equipment, Insignia, Tactical Simbology, etc.)</p>
+        <input type="file" id="zipInput" multiple accept=".zip">
+      </div>
+
+      <div id="settingsContainer">
+        <div id="quizSettings" class="panel">
+          <h2>Quiz Settings</h2>
+
+          <div id="categorySelector" class="panel-subsection hidden">
+          <h3>Categories to include:</h3>
+          <div id="categoryCheckboxes"></div>
+          </div>
+
+          <label for="numQuestions">Number of questions:</label>
+          <input type="number" id="numQuestions" min="1" value="50">
+          <div id="numQuestionsStatus" class="status"></div>
+
+
+          <label for="numChoices">Number of choices:</label>
+          <select id="numChoices">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+          </select>
+
+          <label for="timePerQuestion">Time per question (seconds):</label>
+          <select id="timePerQuestion">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="10" selected>10</option>
+            <option value="14">14</option>
+            <option value="20">20</option>
+            <option value="32">32</option>
+          </select>
+
+          <br>
+          <button id="startBtn" disabled>Start Quiz</button>
+          <div id="loadStatus" class="status"></div>
+        </div>
+
+        <div id="hotlistPreview" class="panel">
+          <h2>Hotlist Preview</h2>
+
+          <label>Select Item:</label>
+          <select id="previewAircraftSelect"></select>
+
+          <div id="previewCategory" class="status"></div>
+
+          <div id="previewViewer" class="panel">
+            <button id="previewPrev" class="navBtn">⟨</button>
+
+            <img id="previewImage" src="" alt="Preview">
+
+            <button id="previewNext" class="navBtn">⟩</button>
+          </div>
+
+          <div id="previewCounter" class="status"></div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="quizSection" class="hidden">
+      <div class="topBar">
+        <div id="progressText"></div>
+        <div id="timer" class="timer"></div>
+        <div id="scoreText"></div>
+      </div>
+
+      <div id="imageContainer">
+        <img id="aircraftImage" alt="Aircraft">
+      </div>
+
+      <div id="choices"></div>
+    </section>
+
+    <section id="summarySection" class="hidden">
+      <div class="panel">
+        <h2>Summary</h2>
+        <div id="finalScore"></div>
+        <h3>Review Incorrect Answers</h3>
+        <div id="summaryList"></div>
+        <br>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/jszip.min.js"></script>
+  <script src="assets/app.js"></script>
+  <div id="fullscreenModal" class="hidden">
+    <div id="fullscreenBackdrop"></div>
+    <img id="fullscreenImage" src="" alt="Fullscreen Preview">
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotlist Manager</title>
+  <link rel="stylesheet" href="assets/manager.css">
+  <script src="assets/jszip.min.js"></script>
+  <script src="assets/FileSaver.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <header>
+      <h1>Hotlist Manager</h1>
+      <div class="controls">
+        <input type="file" id="importZip" accept=".zip">
+        <button id="newHotlistBtn">New Hotlist</button>
+        <button id="exportHotlistBtn">Export Hotlist</button>
+      </div>
+    </header>
+
+    <div class="panel">
+      <section id="hotlistInfo">
+        <label>Hotlist Name:</label>
+        <input type="text" id="hotlistName">
+      </section>
+
+      <section id="aircraftListSection">
+        <h2>Aircraft</h2>
+        <ul id="aircraftList"></ul>
+        <button id="addAircraftBtn">Add Aircraft</button>
+      </section>
+    </div>
+    
+
+    <section id="editorSection">
+      <div class="panel">
+        <h2>Aircraft Editor</h2>
+
+        <div id="editorEmpty">Select an aircraft to edit.</div>
+
+        <div id="editorPanel" class="hidden">
+          <label>Name:</label>
+          <input type="text" id="acNameInput">
+
+          <label>Category:</label>
+          <input type="text" id="acCategoryInput">
+
+
+          <h3>Images</h3>
+          <div id="imageList"></div>
+
+          <input type="file" id="imageUpload" multiple accept="image/*">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="assets/manager.js"></script>
+</body>
+</html>
